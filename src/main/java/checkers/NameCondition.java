@@ -1,6 +1,7 @@
 package checkers;
 
 public class NameCondition implements ConditionChecker {
+
     String fileName;
 
     public NameCondition(String fileName) throws IllegalArgumentException {
