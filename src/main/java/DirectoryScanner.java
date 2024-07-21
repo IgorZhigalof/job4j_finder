@@ -8,7 +8,6 @@ import java.nio.file.Path;
 import java.util.*;
 
 public class DirectoryScanner {
-
     private List<Path> result = new ArrayList<>();
     private final ConditionChecker checker;
     private final Path directory;

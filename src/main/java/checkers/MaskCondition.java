@@ -4,7 +4,6 @@ import java.util.function.Predicate;
 import java.util.regex.Pattern;
 
 public class MaskCondition implements ConditionChecker {
-
     private final Predicate<String> matcher;
 
     public MaskCondition(String mask) {
