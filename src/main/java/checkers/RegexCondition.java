@@ -3,6 +3,7 @@ package checkers;
 import java.util.regex.Pattern;
 
 public class RegexCondition implements ConditionChecker {
+
     Pattern pattern;
 
     public RegexCondition(String regex) {
