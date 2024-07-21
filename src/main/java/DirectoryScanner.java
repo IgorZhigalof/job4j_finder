@@ -39,7 +39,7 @@ public class DirectoryScanner {
         }
     }
 
-    public List<Path> getPathsAsList() throws IOException{
+    public List<Path> getPathsAsList() throws IOException {
         if (result.isEmpty()) {
             scan();
         }

@@ -20,7 +20,7 @@ public class Main {
                 .map(x -> x.toAbsolutePath().toString())
                 .toList();
         BufferedWriter output = new BufferedWriter(new FileWriter("result\\" + argsName.get("o")));
-        for(String file : result) {
+        for (String file : result) {
             output.write(file + System.lineSeparator());
         }
         output.flush();
@@ -29,10 +29,12 @@ public class Main {
 
     private static ConditionChecker getChecker(ArgsName argsName) {
         ConditionChecker checker = null;
-        switch (argsName.get("t")) {
-            case "name" -> checker = new NameCondition(argsName.get("n"));
-            case "mask" -> checker = new MaskCondition(argsName.get("n"));
-            case "regex" -> checker = new RegexCondition(argsName.get("n"));
+        if ("name".equals(argsName.get("t"))) {
+            checker = new NameCondition(argsName.get("n"));
+        } else if ("mask".equals(argsName.get("t"))) {
+            checker = new MaskCondition(argsName.get("n"));
+        } else if ("regex".equals(argsName.get("t"))) {
+            new RegexCondition(argsName.get("n"));
         }
         return checker;
     }
