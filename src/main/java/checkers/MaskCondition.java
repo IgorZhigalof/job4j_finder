@@ -8,7 +8,7 @@ public class MaskCondition implements ConditionChecker {
     private final Predicate<String> matcher;
 
     public MaskCondition(String mask) {
-        String specialSymbols = ".^$+{}[]()|/\\";
+        String specialSymbols = "\\.\\^\\$\\+\\{\\}\\[\\]\\(\\)\\|\\/\\\\";
         for (String symbol: specialSymbols.split("")) {
             mask = mask.replaceAll(symbol, "\\" + symbol);
         }
