@@ -8,8 +8,12 @@ public class MaskCondition implements ConditionChecker {
     private final Predicate<String> matcher;
 
     public MaskCondition(String mask) {
-        mask = mask.replaceAll("\\.", "\\.");
+        String specialSymbols = ".^$+{}[]()|/\\";
+        for (String symbol: specialSymbols.split("")) {
+            mask = mask.replaceAll(symbol, "\\" + symbol);
+        }
         mask = mask.replaceAll("\\*", ".*");
+        mask = mask.replaceAll("\\?", ".");
         matcher = Pattern.compile(mask).asMatchPredicate();
     }
 
